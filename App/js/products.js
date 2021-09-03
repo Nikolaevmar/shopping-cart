@@ -4,7 +4,7 @@ const products = [
     name: "Honda NSX 1990",
     price: 13.99,
     instock: 7,
-    description: "lorem",
+    description: "A 2 door japanese coupé with a mid mounted engine",
     imgSrc: "./img/c1.png",
   },
   {
@@ -12,15 +12,15 @@ const products = [
     name: "Nissan 300ZX",
     price: 13.99,
     instock: 3,
-    description: "lorem",
+    description: "A sports car in the Nissan Z-car family, NSX' rival",
     imgSrc: "./img/c2.png",
   },
   {
     id: 2,
-    name: "VW Golf MK2",
+    name: "VW Golf MK2 GTI",
     price: 19.99,
     instock: 2,
-    description: "lorem",
+    description: "The legendary successor to the Volkswagen Golf Mk1",
     imgSrc: "./img/c3.png",
   },
   {
@@ -28,7 +28,7 @@ const products = [
     name: "Mazda Miata 2018",
     price: 11.99,
     instock: 12,
-    description: "lorem",
+    description: "A rear-wheel-drive chassis and a rev-happy engine",
     imgSrc: "./img/c4.png",
   },
   {
@@ -36,7 +36,7 @@ const products = [
     name: "Porsche 911 1990",
     price: 29.99,
     instock: 1,
-    description: "lorem",
+    description: "A two-door, high performance rear-engined sports car",
     imgSrc: "./img/c6.png",
   },
   {
@@ -44,7 +44,7 @@ const products = [
     name: "Nissan R33",
     price: 19.99,
     instock: 3,
-    description: "lorem",
+    description: "The fourth generation of the skyline family, features AWD",
     imgSrc: "./img/c7.png",
   },
 ];
