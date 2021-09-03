@@ -5,3 +5,5 @@ seeMoreBtn.addEventListener("click", () => {
   porductsListEl.scrollIntoView({ behavior: "smooth" });
 });
 
+// add cart on click event
+
