@@ -33,9 +33,6 @@ function renderProducts() {
                             ${product.description}
                         </p>
                     </div>
-                    <div class="add-to-wishlist">
-                        <img src="./icons/heart.png" alt="add to wish list">
-                    </div>
                     <div class="add-to-cart" onclick="addToCart(${product.id})">
                         <img src="./icons/bag-plus.png" alt="add to cart">
                     </div>
