@@ -1,14 +1,13 @@
 const porductsListEl = document.querySelector(".products-list");
 const seeMoreBtn = document.querySelector(".see-more-btn");
+const productsEl = document.querySelector(".products");
+const cartItemsEl = document.querySelector(".cart-items");
+const subtotalEl = document.querySelector(".subtotal");
+const cartTotal = document.querySelector(".total-items-in-cart");
 
 seeMoreBtn.addEventListener("click", () => {
   porductsListEl.scrollIntoView({ behavior: "smooth" });
 });
-
-// add cart on click event
-
-const productsEl = document.querySelector(".products");
-const cartItemsEl = document.querySelector(".cart-items");
 
 function renderProducts() {
   products.forEach((product) => {
@@ -58,7 +57,21 @@ function addToCart(id) {
 //Updaring the cart
 function updateCart() {
   renderCartItems();
-  // renderSubtotal()
+  renderSubtotal();
+}
+
+function renderSubtotal() {
+  let totalPrice = 0;
+  let totalItems = 0;
+
+  cart.forEach((item) => {
+    totalPrice += item.price * item.numberOfUnits;
+    totalItems += item.numberOfUnits;
+  });
+  subtotalEl.innerHTML = `Subtotal (${totalItems} items): $${totalPrice.toFixed(
+    2
+  )}`;
+  cartTotal.innerHTML = `${totalItems}`;
 }
 
 function renderCartItems() {
@@ -66,7 +79,7 @@ function renderCartItems() {
   cart.forEach((item) => {
     cartItemsEl.innerHTML += `
     <div class="cart-item">
-                    <div class="item-info">
+                    <div class="item-info" onclick="removeItem(${item.id})">
                         <img src="${item.imgSrc}" alt="${item.name}">
                         <h4>${item.name}</h4>
                     </div>
@@ -81,6 +94,12 @@ function renderCartItems() {
      </div>
      `;
   });
+}
+
+function removeItem(id) {
+  cart = cart.filter((item) => item.id !== id);
+
+  updateCart();
 }
 
 function changeUnits(action, id) {
