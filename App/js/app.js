@@ -4,6 +4,15 @@ const productsEl = document.querySelector(".products");
 const cartItemsEl = document.querySelector(".cart-items");
 const subtotalEl = document.querySelector(".subtotal");
 const cartTotal = document.querySelector(".total-items-in-cart");
+const checkOut = document.getElementById("checkoutBtn");
+
+checkOut.addEventListener("click", () => {
+  if (cartTotal.innerHTML < 1) {
+    alert("Your cart is empty!");
+  } else {
+    alert("Thank you for your order!");
+  }
+});
 
 seeMoreBtn.addEventListener("click", () => {
   porductsListEl.scrollIntoView({ behavior: "smooth" });
