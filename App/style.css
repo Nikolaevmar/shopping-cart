@@ -244,6 +244,30 @@ a {
   }
 }
 
+@media (max-width: 468px) {
+  .products .item .item-container {
+    width: 145px;
+  }
+  .products img {
+    width: 130px;
+  }
+  .desc h2 {
+    font-size: 1em;
+  }
+  .desc p {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 320px) {
+  .products .item .item-container {
+    width: 140px;
+  }
+  .products img {
+    width: 130px;
+  }
+}
+
 @media (max-height: 620px) {
   .desc h2 {
     font-size: 1.1em;
