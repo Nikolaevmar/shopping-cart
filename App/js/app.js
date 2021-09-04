@@ -37,7 +37,8 @@ function renderProducts() {
 }
 renderProducts();
 
-let cart = [];
+let cart = JSON.parse(localStorage.getItem("Cart")) || [];
+updateCart();
 
 function addToCart(id) {
   if (cart.some((item) => item.id === id)) {
@@ -58,6 +59,9 @@ function addToCart(id) {
 function updateCart() {
   renderCartItems();
   renderSubtotal();
+
+  //Save cart in the local storage
+  localStorage.setItem("Cart", JSON.stringify(cart));
 }
 
 function renderSubtotal() {
