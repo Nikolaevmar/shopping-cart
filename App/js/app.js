@@ -37,6 +37,7 @@ function renderProducts() {
 }
 renderProducts();
 
+//Transfering the cart to JSON or an empty array if there is nothing in it
 let cart = JSON.parse(localStorage.getItem("Cart")) || [];
 updateCart();
 
@@ -83,18 +84,18 @@ function renderCartItems() {
   cart.forEach((item) => {
     cartItemsEl.innerHTML += `
     <div class="cart-item">
-                    <div class="item-info" onclick="removeItem(${item.id})">
-                        <img src="${item.imgSrc}" alt="${item.name}">
-                        <h4>${item.name}</h4>
-                    </div>
-                    <div class="unit-price">
-                        <small>$</small>${item.price}
-                    </div>
-                    <div class="units">
-                        <div class="btn minus" onclick="changeUnits('minus', ${item.id})">-</div>
-                        <div class="number">${item.numberOfUnits}</div>
-                        <div class="btn plus" onclick="changeUnits('plus', ${item.id})">+</div>           
-                </div>
+               <div class="item-info" onclick="removeItem(${item.id})">
+                   <img src="${item.imgSrc}" alt="${item.name}">
+                  <h4>${item.name}</h4>
+              </div>
+              <div class="unit-price">
+                <small>$</small>${item.price}
+              </div>
+             <div class="units">
+                <div class="btn minus" onclick="changeUnits('minus', ${item.id})">-</div>
+                  <div class="number">${item.numberOfUnits}</div>
+                 <div class="btn plus" onclick="changeUnits('plus', ${item.id})">+</div>           
+            </div>
      </div>
      `;
   });
