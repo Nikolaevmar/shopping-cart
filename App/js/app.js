@@ -1,5 +1,4 @@
 const porductsListEl = document.querySelector(".products-list");
-const seeMoreBtn = document.querySelector(".see-more-btn");
 const productsEl = document.querySelector(".products");
 const cartItemsEl = document.querySelector(".cart-items");
 const subtotalEl = document.querySelector(".subtotal");
@@ -14,10 +13,7 @@ checkOut.addEventListener("click", () => {
   }
 });
 
-seeMoreBtn.addEventListener("click", () => {
-  porductsListEl.scrollIntoView({ behavior: "smooth" });
-});
-
+//Initial product rendering
 function renderProducts() {
   products.forEach((product) => {
     productsEl.innerHTML += `
@@ -58,7 +54,6 @@ function addToCart(id) {
       numberOfUnits: 1,
     });
   }
-
   updateCart();
 }
 
