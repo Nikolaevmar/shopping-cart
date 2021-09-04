@@ -8,6 +8,7 @@ seeMoreBtn.addEventListener("click", () => {
 // add cart on click event
 
 const productsEl = document.querySelector(".products");
+const cartItemsEl = document.querySelector(".cart-items");
 
 function renderProducts() {
   products.forEach((product) => {
@@ -42,15 +43,60 @@ let cart = [];
 function addToCart(id) {
   if (cart.some((item) => item.id === id)) {
     //Checking if the product already exists in the cart array
-    alert("Product already in cart!");
+    changeUnits("plus", id);
   } else {
     const item = products.find((product) => product.id === id);
     cart.push({
       ...item,
-      NumberOfUnits: 1,
+      numberOfUnits: 1,
     });
   }
 
-
+  updateCart();
 }
 
+//Updaring the cart
+function updateCart() {
+  renderCartItems();
+  // renderSubtotal()
+}
+
+function renderCartItems() {
+  cartItemsEl.innerHTML = ""; //clear cart items;
+  cart.forEach((item) => {
+    cartItemsEl.innerHTML += `
+    <div class="cart-item">
+                    <div class="item-info">
+                        <img src="${item.imgSrc}" alt="${item.name}">
+                        <h4>${item.name}</h4>
+                    </div>
+                    <div class="unit-price">
+                        <small>$</small>${item.price}
+                    </div>
+                    <div class="units">
+                        <div class="btn minus" onclick="changeUnits('minus', ${item.id})">-</div>
+                        <div class="number">${item.numberOfUnits}</div>
+                        <div class="btn plus" onclick="changeUnits('plus', ${item.id})">+</div>           
+                </div>
+     </div>
+     `;
+  });
+}
+
+function changeUnits(action, id) {
+  cart = cart.map((item) => {
+    let numberOfUnits = item.numberOfUnits;
+    if (item.id === id) {
+      if (action === "minus" && numberOfUnits > 1) {
+        numberOfUnits--;
+      } else if (action === "plus" && numberOfUnits < item.instock) {
+        numberOfUnits++;
+      }
+    }
+    return {
+      ...item,
+      numberOfUnits,
+    };
+  });
+  updateCart();
+}
