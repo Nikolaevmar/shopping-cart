@@ -7,7 +7,6 @@ seeMoreBtn.addEventListener("click", () => {
 
 // add cart on click event
 
-
 const productsEl = document.querySelector(".products");
 
 function renderProducts() {
@@ -28,7 +27,7 @@ function renderProducts() {
                     <div class="add-to-wishlist">
                         <img src="./icons/heart.png" alt="add to wish list">
                     </div>
-                    <div class="add-to-cart">
+                    <div class="add-to-cart" onclick="addToCart(${product.id})">
                         <img src="./icons/bag-plus.png" alt="add to cart">
                     </div>
                 </div>
@@ -37,3 +36,21 @@ function renderProducts() {
   });
 }
 renderProducts();
+
+let cart = [];
+
+function addToCart(id) {
+  if (cart.some((item) => item.id === id)) {
+    //Checking if the product already exists in the cart array
+    alert("Product already in cart!");
+  } else {
+    const item = products.find((product) => product.id === id);
+    cart.push({
+      ...item,
+      NumberOfUnits: 1,
+    });
+  }
+
+
+}
+
